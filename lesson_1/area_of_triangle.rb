@@ -1,7 +1,7 @@
 a = puts "Введите длину основания треугольника:"
-osn = gets.chomp
+base = gets.to_f.chomp
 h = puts "Введите длину высоты треугольника:"
-vis = gets.chomp
+height = gets.to_f.chomp
 
-area = (osn.to_f * vis.to_f) / 2
+area = (base * height) / 2
 result = puts "Площадь треугольника равна #{area}"

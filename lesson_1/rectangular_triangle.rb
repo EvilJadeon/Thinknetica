@@ -1,16 +1,17 @@
 a = puts "Введите длину стороны a:"
-side_a = gets.chomp
+side_a = gets.chomp.to_f
 b = puts "Введите длину стороны b:"
-side_b = gets.chomp
+side_b = gets.chomp.to_f
 c = puts "Введите длину стороны c:"
-side_c = gets.chomp
+side_c = gets.chomp.to_f
 
+a, b, hypo = [side_a, side_b, side_c].sort
 
-if side_a.to_f == side_b.to_f && side_b.to_f == side_c.to_f
+if a == b && b == hypo && hypo == a
   puts "Треугольник является равносторонним"
-elsif side_a.to_f == side_b.to_f || side_b.to_f == side_c.to_f || side_c.to_f == side_a.to_f
+elsif a == b || b == hypo || hypo == a
   puts "Треугольник является равнобедренным"
-elsif side_a.to_f ** 2 == side_b.to_f ** 2 + side_c.to_f ** 2 || side_b.to_f ** 2 == side_a.to_f ** 2 + side_c.to_f ** 2 || side_c.to_f ** 2 == side_b.to_f ** 2 + side_a.to_f ** 2
+elsif hypo ** 2 == a ** 2 + b ** 2
   puts "Треугольник является прямоугольным"
 else
   puts "Размеры треугольника не соответствуют условиям задачи"

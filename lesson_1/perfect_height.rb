@@ -1,8 +1,8 @@
 n = puts "Введите ваше имя:"
 name = gets.chomp
 h = puts "Введите ваш рост:"
-height = gets.chomp
-result = (height.to_i - 110) * 1.15
+height = gets.to_f.chomp
+result = (height - 110) * 1.15
 
 if result >= 0
   puts "#{name}, #{result}"
