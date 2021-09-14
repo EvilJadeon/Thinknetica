@@ -1,9 +1,9 @@
 a = puts "Введите длину стороны a:"
-side_a = gets.chomp.to_f
+side_a = gets.to_f
 b = puts "Введите длину стороны b:"
-side_b = gets.chomp.to_f
+side_b = gets.to_f
 c = puts "Введите длину стороны c:"
-side_c = gets.chomp.to_f
+side_c = gets.to_f
 
 a, b, hypo = [side_a, side_b, side_c].sort
 

@@ -1,9 +1,9 @@
 input_a = puts "Введите переменную a:"
-a = gets.to_f.chomp
+a = gets.to_f
 input_b = puts "Введите переменную b:"
-b = gets.to_f.chomp
+b = gets.to_f
 input_c = puts "Введите переменную c:"
-c = gets.to_f.chomp
+c = gets.to_f
 
 d = b ** 2 - (4 * a * c)
 if d >= 0
