@@ -13,5 +13,5 @@ month = {
   December: 31,
 }
 
-upd_month = month.select {|key, value| value == 30}
+upd_month = month.select {|month, days| days == 30}
 puts upd_month

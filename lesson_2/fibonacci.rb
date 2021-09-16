@@ -1,7 +1,10 @@
-arr = [1, 1]
+a = 0
+b = 1
+array = []
 
-9.times do
-  arr.push(arr[-1] + arr[-2])
+while b <= 100
+  array.push(b)
+  a, b = b, a + b
 end
 
-print arr
+print array

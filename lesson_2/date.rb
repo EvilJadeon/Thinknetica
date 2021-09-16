@@ -7,12 +7,8 @@ year = gets.to_i
 
 day_of_month = [31,28,31,30,31,30,31,31,30,31,30,31]
 
-res = 0
-i = 0
 
-for i in day_of_month
-  res = (i - 1) * (month - 1)
-end
+res = day_of_month.take(month - 1).sum + day
 
 if month > 2
   if year % 4 == 0
