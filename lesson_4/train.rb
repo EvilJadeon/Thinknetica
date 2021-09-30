@@ -1,13 +1,14 @@
-class Train < Route
+class Train
   def initialize(number, type, count_of_wagons)
-    @number = number
+    @number = number.to_s
     @type = type
     @count_of_wagons = count_of_wagons
     @speed = 0
+    @current_station_index = nil
   end
 
-  def speed_up
-    @speed +=
+  def speed_up(speed)
+    @speed += speed
   end
 
   def return_speed
@@ -22,29 +23,37 @@ class Train < Route
     @count_of_wagons
   end
 
-  def add_del_wagons
-    @count_of_wagons += 1 @count_of_wagons -=1 if @speed = 0
-  end
-
-  def add_route(show_stations)
-    super
-  end
-
-  def get_route
-    if add_route == true
-      @current_station_index = 0
+  def add_del_wagons(add)
+    if @speed == 0
+      if add == 'add'
+        @count_of_wagons += 1
+      elsif add == 'del'
+        @count_of_wagons -= 1
+      end
     end
   end
 
+  def add_route(route)
+    add_train
+  end
+
   def train_forward
-    @current_station_index += 1
+    @current_station_index += 1 if @current_station_index < @stations.size - 1
   end
 
   def train_back
-    @current_station_index -= 1
+    @current_station_index -= 1 if @current_station_index > 0
   end
 
-  def return_stations
-    return show_stations
+  def return_current_station
+    return @stations[@current_station_index]
+  end
+
+  def return_next_station
+    return @stations[@current_station_index + 1]
+  end
+
+  def return_prev_station
+    return @stations[@current_station_index - 1]
   end
 end
