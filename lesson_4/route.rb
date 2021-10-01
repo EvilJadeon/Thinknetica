@@ -19,11 +19,8 @@ class Route
 
   def stations
     @stations = []
-    @stations << @first_station
-    @stations << @intermediate_stations
-    @stations << last_station
+    @stations << [@first_station, @intermediate_stations, @last_station]
     @stations.flatten!
-    return @stations
   end
 
 end

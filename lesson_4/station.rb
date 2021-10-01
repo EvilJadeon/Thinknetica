@@ -1,4 +1,5 @@
 class Station
+  attr_reader :trains
   
   def initialize(name)
     @name = name
@@ -9,10 +10,6 @@ class Station
     @trains << number
     @trains << type
     @trains << count_of_wagons
-  end
-
-  def return_trains
-    return @trains
   end
 
   def return_train_type

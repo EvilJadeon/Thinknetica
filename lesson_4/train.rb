@@ -1,4 +1,6 @@
 class Train
+  attr_reader :speed
+
   def initialize(number, type, count_of_wagons)
     @number = number.to_s
     @type = type
@@ -11,10 +13,6 @@ class Train
     @speed += speed
   end
 
-  def return_speed
-    return @speed
-  end
-
   def stop
     @speed = 0
   end
@@ -23,13 +21,15 @@ class Train
     @count_of_wagons
   end
 
-  def add_del_wagons(add)
+  def add_wagons
     if @speed == 0
-      if add == 'add'
-        @count_of_wagons += 1
-      elsif add == 'del'
-        @count_of_wagons -= 1
-      end
+      @count_of_wagons += 1
+    end
+  end
+
+  def delete_wagons
+    if @speed == 0
+      @count_of_wagons -= 1
     end
   end
 
@@ -38,22 +38,24 @@ class Train
   end
 
   def train_forward
-    @current_station_index += 1 if @current_station_index < @stations.size - 1
+    @current_station_index += 1 if next_station
   end
 
   def train_back
-    @current_station_index -= 1 if @current_station_index > 0
+    @current_station_index -= 1 if previous_station
   end
 
-  def return_current_station
-    return @stations[@current_station_index]
+  def current_station
+    @stations[@current_station_index]
   end
 
-  def return_next_station
-    return @stations[@current_station_index + 1]
+  def next_station
+    @stations[@current_station_index + 1]
   end
 
-  def return_prev_station
-    return @stations[@current_station_index - 1]
+  def previous_station
+    if @current_station_index > 0
+      @stations[@current_station_index - 1]
+    end
   end
 end
