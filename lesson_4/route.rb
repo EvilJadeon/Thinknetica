@@ -18,9 +18,6 @@ class Route
   end
 
   def stations
-    @stations = []
-    @stations << [@first_station, @intermediate_stations, @last_station]
-    @stations.flatten!
+    @stations = [@first_station, @intermediate_stations, @last_station].flatten!
   end
-
 end

@@ -22,15 +22,11 @@ class Train
   end
 
   def add_wagons
-    if @speed == 0
-      @count_of_wagons += 1
-    end
+      @count_of_wagons += 1 if @speed == 0
   end
 
   def delete_wagons
-    if @speed == 0
-      @count_of_wagons -= 1
-    end
+      @count_of_wagons -= 1 if @speed == 0
   end
 
   def add_route(route)
@@ -54,8 +50,6 @@ class Train
   end
 
   def previous_station
-    if @current_station_index > 0
-      @stations[@current_station_index - 1]
-    end
+    @stations[@current_station_index - 1] if @current_station_index > 0
   end
 end
