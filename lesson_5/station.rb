@@ -6,10 +6,9 @@ class Station
     @trains = []
   end
 
-  def add_train(number, type, count_of_wagons)
+  def add_train(number, type)
     @trains << number
     @trains << type
-    @trains << count_of_wagons
   end
 
   def return_train_type
