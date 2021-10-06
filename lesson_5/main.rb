@@ -158,14 +158,8 @@ class Main
     route = @route.find {|i| i.stations.select {|j| j == first_station} && i.stations.select {|j| j == last_station}}
     puts "This is list of stations for #{first_station} - #{last_station} route:"
     route.show_stations
-    
+    puts
     p trains
-    #puts 'Enter a station name to show a list of trains:'
-    #station_name = gets.chomp
-    #station = @stations.find {|i| i.name == station_name}
-    #station.trains.each_with_index do |train, index| 
-     # puts "Train: #{train.number}, type: #{train.type}, wagons: #{train.wagons}"
-    #end
   end
 
   loop do
