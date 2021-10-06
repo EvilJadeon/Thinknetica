@@ -1,4 +1,7 @@
 class Route
+
+  attr_reader :stations, :name
+
   def initialize(first_station, last_station)
     @first_station = first_station
     @last_station = last_station
@@ -13,11 +16,16 @@ class Route
     @intermediate_stations.delete(station)
   end
 
-  def show_stations
-    puts "#{@first_station}, #{@intermediate_stations.each {|station| puts station}}, #{@last_station}"
-  end
-
   def stations
     @stations = [@first_station, @intermediate_stations, @last_station].flatten!
+  end
+
+  def show_stations
+    @stations = [@first_station, @intermediate_stations, @last_station].flatten!
+    puts "#{@stations}"
+  end
+
+  def add_train(train)
+    @stations[0].add_train(train)
   end
 end

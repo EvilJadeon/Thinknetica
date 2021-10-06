@@ -1,7 +1,8 @@
 require_relative 'train'
 
 class CargoTrain < Train
-  def initialize(number)
-    
+  attr_reader :type
+  def initialize(number, type)
+    super
   end
 end
