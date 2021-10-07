@@ -2,9 +2,9 @@ class Train
   attr_accessor :wagons, :current_station
   attr_reader :speed, :number
 
-  def initialize(number, type)
+  def initialize(number)
     @number = number
-    @type = type
+    @type = self.type
     @speed = 0
     @wagons = []
   end
@@ -35,14 +35,19 @@ class Train
   def add_route(route)
     @route = route
     @current_station = @route.stations[0]
+    @current_station.add_train(self)
   end
 
   def train_forward
+    @current_station.delete_train(self)
     @current_station = next_station
+    @current_station.add_train(self)
   end
 
   def train_back
+    @current_station.delete_train(self)
     @current_station = previous_station
+    @current_station.add_train(self)
   end
 
   def next_station
