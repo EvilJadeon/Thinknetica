@@ -2,7 +2,7 @@ require_relative 'train'
 
 class CargoTrain < Train
   attr_reader :type
-  qty_instances
+  instances
   def initialize(number)
     @type = 'cargo'
     super

@@ -10,8 +10,6 @@ class Train
 
   @@trains = []
 
-  qty_instances
-
   def self.find(number)
     @@trains.find {|train| train.number == number}
   end

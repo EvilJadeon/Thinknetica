@@ -6,8 +6,8 @@ module InstanceCounter
 
   module ClassMethods
     attr_accessor :instances
-    def qty_instances
-      @instances = 0
+    def instances
+      @instances ||= 0
     end
   end
 

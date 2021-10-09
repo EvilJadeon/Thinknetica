@@ -2,7 +2,7 @@ require_relative 'train.rb'
 
 class PassengerTrain < Train
   attr_reader :type
-  qty_instances
+  instances
   def initialize(number)
     @type = 'pass'
     super
