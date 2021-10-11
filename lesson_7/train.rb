@@ -20,9 +20,9 @@ class Train
     @number = number.to_s
     @speed = 0
     @wagons = []
+    validate!
     @@trains.push(self)
     register_instance
-    validate!
   end
   
   def valide?

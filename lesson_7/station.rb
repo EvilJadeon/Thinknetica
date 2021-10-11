@@ -14,9 +14,9 @@ class Station
   def initialize(name)
     @name = name
     @trains = []
+    validate!
     @@stations.push(self)
     register_instance
-    validate!
   end
 
   def valide?
