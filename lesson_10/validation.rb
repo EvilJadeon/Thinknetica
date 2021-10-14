@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Validation
   def self.included(base)
     base.extend ClassMethods
@@ -9,7 +11,7 @@ module Validation
 
     def validate(name, type, *args)
       self.box ||= []
-      self.box.push({name: name, type: type, args: args})
+      self.box.push({ name: name, type: type, args: args })
     end
   end
 

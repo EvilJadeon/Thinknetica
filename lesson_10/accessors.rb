@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 module Accessors
   def attr_accessor_with_history(*methods)
     methods.each do |method|
-      raise TypeError.new("method name  is not symbol") unless method.is_a?(Symbol)
+      raise TypeError, 'method name  is not symbol' unless method.is_a?(Symbol)
+
       define_method(method) do
         instance_variable_get("@#{method}")
       end
@@ -17,13 +20,15 @@ module Accessors
   end
 
   def strong_attr_accessor(method, type)
-      raise TypeError.new("method name  is not symbol") unless method.is_a?(Symbol)
-      define_method(method) do
-        instance_variable_get("@#{method}")
-      end
-      define_method("#{method}=") do |v|
-        raise TypeError.new("Incorrect class name") unless v.instance_of?(type)
-        instance_variable_set("@#{method}", v)
-      end
+    raise TypeError, 'method name  is not symbol' unless method.is_a?(Symbol)
+
+    define_method(method) do
+      instance_variable_get("@#{method}")
+    end
+    define_method("#{method}=") do |v|
+      raise TypeError, 'Incorrect class name' unless v.instance_of?(type)
+
+      instance_variable_set("@#{method}", v)
+    end
   end
 end

@@ -7,6 +7,7 @@ class PassengerWagon < Wagon
   include Validation
 
   attr_reader :type, :qty_of_places, :occupied_places, :count
+
   validate :count, :type, Integer
 
   @@count = 0

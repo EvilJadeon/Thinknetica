@@ -7,6 +7,7 @@ class CargoWagon < Wagon
   include Validation
 
   attr_reader :type, :volume, :occupied_volume, :count
+
   validate :count, :type, Integer
 
   @@count = 0

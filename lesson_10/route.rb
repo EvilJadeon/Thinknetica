@@ -12,7 +12,6 @@ class Route
 
   attr_accessor_with_history :stations, :first_station, :last_station
 
-
   instances
 
   def initialize(first_station, last_station)
