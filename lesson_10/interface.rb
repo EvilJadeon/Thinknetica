@@ -67,9 +67,6 @@ class Interface
       puts 'Incorrect train type!'
       create_train
     end
-    # rescue StandardError => e
-    # puts e.message
-    # retry
   end
 
   def create_route

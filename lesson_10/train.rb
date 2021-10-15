@@ -11,7 +11,7 @@ class Train
   include InstanceCounter
   include Validation
 
-  TRAIN_NUMBER = /\A[a-zа-я0-9]{3}(-|)[a-zа-я0-9]{2}\z/i.freeze
+  TRAIN_NUMBER = /^\w{3}(-)?\w{2}$/i.freeze
 
   instances
   attr_accessor_with_history :wagons, :current_station, :speed, :number, :route, :type
@@ -21,7 +21,7 @@ class Train
   @@trains = []
 
   def initialize(number)
-    @number = number.to_s
+    @number = number
     @speed = 0
     @wagons = []
     validate!

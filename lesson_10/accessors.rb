@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# module declaration
 module Accessors
   def attr_accessor_with_history(*methods)
     methods.each do |method|
