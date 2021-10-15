@@ -3,20 +3,16 @@
 require_relative 'manufacturer'
 require_relative 'instance_counter'
 require_relative 'accessors'
-require_relative 'validation'
 # class declaration
 class Train
   extend Accessors
   include Manufacturer
   include InstanceCounter
-  include Validation
 
   TRAIN_NUMBER = /^\w{3}(-)?\w{2}$/i.freeze
 
   instances
   attr_accessor_with_history :wagons, :current_station, :speed, :number, :route, :type
-  validate :number, :format, TRAIN_NUMBER
-  validate :number, :presence
 
   @@trains = []
 
@@ -24,7 +20,6 @@ class Train
     @number = number
     @speed = 0
     @wagons = []
-    validate!
     register_instance
     @@trains.push(self)
   end

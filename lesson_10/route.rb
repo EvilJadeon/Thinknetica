@@ -3,11 +3,9 @@
 require_relative 'manufacturer'
 require_relative 'instance_counter'
 require_relative 'accessors'
-require_relative 'validation'
 # class declaration
 class Route
   include InstanceCounter
-  include Validation
   extend Accessors
 
   attr_accessor_with_history :stations, :first_station, :last_station
@@ -18,7 +16,6 @@ class Route
     @first_station = first_station
     @last_station = last_station
     @stations = [@first_station, @last_station]
-    validate!
     register_instance
   end
 
